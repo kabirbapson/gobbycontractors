@@ -91,46 +91,8 @@ button {
 }
 
 /* ==========================================================================
-   TOP BAR & HEADER
+   HEADER & NAVIGATION
    ========================================================================== */
-.topbar {
-  background: var(--navy-950);
-  color: var(--slate-300);
-  font-size: 0.82rem;
-  padding: 0.5rem 0;
-}
-
-.topbar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.topbar-motto {
-  color: var(--amber-400);
-  font-weight: 600;
-}
-
-.topbar-contacts {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-}
-
-.topbar-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  color: var(--slate-300);
-}
-
-.topbar-link:hover {
-  color: var(--amber-400);
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -148,19 +110,20 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 74px;
-  gap: 1.5rem;
+  min-height: 72px;
+  gap: 1rem;
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .brand-mark {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 10px;
   background: linear-gradient(135deg, var(--navy-900) 0%, var(--royal-600) 100%);
   display: flex;
@@ -169,24 +132,26 @@ button {
   color: var(--white);
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 1.65rem;
+  font-size: 1.55rem;
+  flex-shrink: 0;
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .brand-name {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 0.98rem;
   color: var(--navy-900);
   line-height: 1.2;
 }
 
 .brand-motto {
-  font-size: 0.74rem;
+  font-size: 0.73rem;
   color: var(--slate-500);
   font-weight: 500;
 }
@@ -209,6 +174,13 @@ button {
 .nav-links a:hover {
   color: var(--royal-600);
   background: var(--royal-50);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .btn {
@@ -266,6 +238,7 @@ button {
   display: none;
   padding: 0.5rem;
   color: var(--navy-900);
+  border-radius: var(--radius-sm);
 }
 
 /* ==========================================================================
@@ -1120,6 +1093,7 @@ button {
   .about-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .services-grid,
   .projects-grid,
@@ -1129,6 +1103,38 @@ button {
 }
 
 @media (max-width: 760px) {
+  .container {
+    padding: 0 1.1rem;
+  }
+
+  .header-inner {
+    min-height: 62px;
+  }
+
+  .brand {
+    gap: 0.6rem;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    font-size: 1.35rem;
+    border-radius: 8px;
+  }
+
+  .brand-name {
+    font-size: 0.84rem;
+    line-height: 1.2;
+  }
+
+  .brand-motto {
+    display: none;
+  }
+
+  .header-cta {
+    display: none;
+  }
+
   .nav-links {
     display: none;
     position: absolute;
@@ -1137,14 +1143,88 @@ button {
     right: 0;
     background: var(--white);
     flex-direction: column;
-    padding: 1rem;
+    align-items: stretch;
+    padding: 0.75rem 1.1rem 1rem;
     border-bottom: 1px solid var(--slate-200);
+    box-shadow: var(--shadow-md);
   }
+
   .nav-links.open {
     display: flex;
   }
+
+  .nav-links a {
+    display: block;
+    padding: 0.65rem 0.75rem;
+  }
+
   .mobile-menu-toggle {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--slate-100);
+  }
+
+  .hero {
+    padding: 2.25rem 0 2.75rem;
+  }
+
+  .hero-inner {
+    gap: 1.75rem;
+  }
+
+  .motto-pill {
+    font-size: 0.74rem;
+    line-height: 1.35;
+    padding: 0.35rem 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+    line-height: 1.22;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 1.35rem;
+  }
+
+  .hero-cta-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    font-size: 0.86rem;
+  }
+
+  .showcase-card {
+    padding: 0.65rem;
+  }
+
+  .showcase-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.75rem 0.2rem 0.15rem;
+  }
+
+  .showcase-caption-title {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .section {
+    padding: 3.25rem 0;
   }
 }
 
